@@ -15,18 +15,18 @@ IP=$(ifconfig | grep "inet " | head -1 | awk '{print $2}')
 MAC=$(Script/MAC.sh)
 SUDO=$(cat /var/log/sudo/sudo.log | grep "COMMAND" | wc -l)
 
-MONITOR=$(echo "#Architecture: $ARCHY" > monitor.txt;\
-      	echo "#CPU physical : $PPROC" >> monitor.txt;\
-	echo "#vCPU : $VCPU" >> monitor.txt; \
-	echo "#Memory Usage: $MEMU" >> monitor.txt; \
-	echo "#Disk Usage: $DISKU" >> monitor.txt; \
-	echo "#CPU load: $CPUU" >> monitor.txt; \
-	echo "#Last boot: $LBOOT" >> monitor.txt; \
-	echo "#LVM use: $LVM" >> monitor.txt; \
-	echo "#Connexions TCP : $TCP ESTABLISHED" >> monitor.txt; \
-	echo "#User log: $USER" >> monitor.txt; \
-	echo "#Network: IP $IP ($MAC)" >> monitor.txt; \
-	echo "#Sudo : $SUDO cmd" >> monitor.txt; \
+MONITOR=$(echo "#Architecture: $ARCHY" > /root/Tools/monitor.txt;\
+      	echo "#CPU physical : $PPROC" >> /root/Tools/monitor.txt;\
+	echo "#vCPU : $VCPU" >> /root/Tools/monitor.txt; \
+	echo "#Memory Usage: $MEMU" >> /root/Tools/monitor.txt; \
+	echo "#Disk Usage: $DISKU" >> /root/Tools/monitor.txt; \
+	echo "#CPU load: $CPUU" >> /root/Tools/monitor.txt; \
+	echo "#Last boot: $LBOOT" >> /root/Tools/monitor.txt; \
+	echo "#LVM use: $LVM" >> /root/Tools/monitor.txt; \
+	echo "#Connexions TCP : $TCP ESTABLISHED" >> /root/Tools/monitor.txt; \
+	echo "#User log: $USER" >> /root/Tools/monitor.txt; \
+	echo "#Network: IP $IP ($MAC)" >> /root/Tools/monitor.txt; \
+	echo "#Sudo : $SUDO cmd" >> /root/Tools/monitor.txt; \
 	)
 
 wall monitor.txt

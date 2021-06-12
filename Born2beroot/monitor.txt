@@ -1,12 +1,12 @@
 #Architecture: Linux nduvelle42 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64 GNU/Linux
 #CPU physical : 1
 #vCPU : 1
-#Memory Usage: 77/987MB (7.80%)
+#Memory Usage: 73/987MB (7.40%)
 #Disk Usage: 931/3GB (25%)
 #CPU load: 0.0%
 #Last boot: 2021-06-12 19:48
-#LVM use: 
+#LVM use: yes
 #Connexions TCP : 1 ESTABLISHED
-#User log: 3
-#Network: IP  ()
-#Sudo : 66 cmd
+#User log: 2
+#Network: IP 192.168.1.35 (08:00:27:ba:66:11)
+#Sudo : 65 cmd
