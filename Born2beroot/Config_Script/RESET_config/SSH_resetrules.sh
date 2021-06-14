@@ -13,6 +13,4 @@ sed -i -e "s/Banner \/root\/Tools\/Born2beroot\/Banner/#Banner none/g" /etc/ssh/
 sed -i -e "/AllowGroups sudo user42/d" /etc/ssh/sshd_config
 sed -i -e "/DenyUsers root/d" /etc/ssh/sshd_config
 sed -i -e "/DenyGroups root/d" /etc/ssh/sshd_config
-cat /etc/ssh/sshd_config
 service sshd restart
-service sshd status

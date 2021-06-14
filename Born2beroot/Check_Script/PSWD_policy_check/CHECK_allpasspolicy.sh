@@ -1,7 +1,8 @@
 #!/bin/bash
 for user in $(ls /home) ; do
-	echo "$user stats validity :"
+	printf "\n### $user ###\n"
 	chage -l $user
+	printf "\n"
 done
-echo "root stats validity :"
+echo "### root ###"
 chage -l root

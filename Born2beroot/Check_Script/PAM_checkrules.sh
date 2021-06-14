@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "SU RULES:"
+printf "### SU RULES ###\n"
 grep "auth       required" /etc/pam.d/su
-echo "PASSWORD RULES:"
+printf "\n\n### PASSWORD RULES ###\n"
 grep "pam_pwquality.so" /etc/pam.d/common-password
