@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHECK=$(grep "mapper" /etc/fstab | wc -l)
+CHECK=$(lsblk | grep "lvm" | wc -l)
 
 if [[ $CHECK == 0 ]] ;then
 	echo "no";
