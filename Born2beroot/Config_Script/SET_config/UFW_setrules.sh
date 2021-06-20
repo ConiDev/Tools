@@ -7,6 +7,6 @@ ufw default deny incoming
 ufw default deny outgoing
 ufw logging on
 ufw allow 4242/tcp
-#ufw enable
+ufw allow 80
 printf "y\n" | ufw enable
 ufw status verbose
