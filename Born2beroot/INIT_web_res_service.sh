@@ -1,5 +1,5 @@
 #!/bin/bash
-printf "y\n" | aptitude install lighttpd \
+print "y\n" | aptitude remove lighttpd \
 	mariadb-server \
 	php7.3 \
 	php7.3-fpm \
