@@ -6,7 +6,7 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 19:05:27 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/17 20:40:50 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/07/17 21:11:57 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,25 +52,25 @@ endif
 
 ${NAME}:		${OBJ} ${HEADER}
 			@make -C ./libft
-			@printf "Compiling executable...\n"
+			@printf "\001\e[1;32m\002Compiling executable\n"
 			@${CC} ${LDFLAGS} ${CFLAGS} ${OBJ} ${LIB} -o ${NAME}
 
 all:			${NAME}
 
 clean:
-			@printf "Cleaning up object files...\n"
+			@printf "\001\e[1;35m\002Cleaning up object files\n"
 			@${RM} ${OBJS} ${OBJS_BNS}
 			@make clean -C ./libft
 
 fclean:			clean
-			@printf "Cleaning up binaries...\n"
+			@printf "\001\e[1;35m\002Cleaning up binaries\n"
 			@${RM} ${NAME}
 			@make fclean -C ./libft
 
 re:			fclean all
 
 bonus:
-			@printf "Making Bonus...\n"
+			@printf "\001\e[1;34m\002Making Bonus\n"
 			@${MAKE} BONUS=1
 
 norm:
