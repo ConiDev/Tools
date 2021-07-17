@@ -6,7 +6,7 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/09 17:42:35 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/17 18:46:20 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/07/17 20:38:28 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,18 +29,21 @@ SRC		= $(addprefix ${FOLDER}, ${SRCS})
 OBJS		= ${SRC:.c=.o}
 
 %.o: %.c
-		${CC} ${CFLAGS} -c -o $@ $^
+		@${CC} ${CFLAGS} -c -o $@ $^
 
 ${NAME}:	${OBJS} ${HEADER}
-		ar -rcs ${NAME} ${OBJS}
+		@printf "Creating libft.a\n"
+		@ar -rcs ${NAME} ${OBJS}
 
 all:		${NAME}
 
 clean:
-		${RM} ${OBJS}
+		@printf "Cleaning up libft object\n"
+		@${RM} ${OBJS}
 
 fclean:		clean
-		${RM} ${NAME}
+		@printf "Cleaning up libft binaries\n"
+		@${RM} ${NAME}
 
 re:		fclean all
 

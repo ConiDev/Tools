@@ -6,7 +6,7 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 19:05:27 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/17 19:59:29 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/07/17 20:40:50 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,26 +48,30 @@ HEADER			= ${HDR}
 endif
 
 %.o: %.c
-			${CC} ${LDFLAGS} ${CFLAGS} -c -o $@ $^
+			@${CC} ${LDFLAGS} ${CFLAGS} -c -o $@ $^
 
 ${NAME}:		${OBJ} ${HEADER}
-			make -C ./libft
-			${CC} ${LDFLAGS} ${CFLAGS} ${OBJ} ${LIB} -o ${NAME}
+			@make -C ./libft
+			@printf "Compiling executable...\n"
+			@${CC} ${LDFLAGS} ${CFLAGS} ${OBJ} ${LIB} -o ${NAME}
 
 all:			${NAME}
 
 clean:
-			${RM} ${OBJS} ${OBJS_BNS}
-			make clean -C ./libft
+			@printf "Cleaning up object files...\n"
+			@${RM} ${OBJS} ${OBJS_BNS}
+			@make clean -C ./libft
 
 fclean:			clean
-			${RM} ${NAME}
-			make fclean -C ./libft
+			@printf "Cleaning up binaries...\n"
+			@${RM} ${NAME}
+			@make fclean -C ./libft
 
 re:			fclean all
 
 bonus:
-			${MAKE} BONUS=1
+			@printf "Making Bonus...\n"
+			@${MAKE} BONUS=1
 
 norm:
 			norminette libft/ header/ srcs/ srcs_bonus/
