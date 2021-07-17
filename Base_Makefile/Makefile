@@ -6,7 +6,7 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 19:05:27 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/17 19:20:40 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/07/17 19:59:29 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,12 @@ FOLDER_SRCS		= srcs/
 FOLDER_BNS		= srcs_bonus/
 
 
-HEADER			= test.h
+HEADER_SRC		= test.h
 HEADER_BNS		= test_bonus.h
 SRCS			= testleaks.c
 SRCS_BNS		= testleaks_bonus.c
 
-HDR			= $(addprefix ${FOLDER_HEADER}, ${HEADER})
+HDR			= $(addprefix ${FOLDER_HEADER}, ${HEADER_SRC})
 HDR_BNS			= $(addprefix ${FOLDER_HEADER}, ${HEADER_BNS})
 SRC			= $(addprefix ${FOLDER_SRCS}, ${SRCS})
 SRC_BNS			= $(addprefix ${FOLDER_BNS}, ${SRCS_BNS})
@@ -41,14 +41,16 @@ LIB			= ./libft/libft.a
 
 ifdef BONUS
 OBJ			= ${OBJS_BNS}
+HEADER			= ${HDR_BNS}
 else
 OBJ			= ${OBJS}
+HEADER			= ${HDR}
 endif
 
 %.o: %.c
 			${CC} ${LDFLAGS} ${CFLAGS} -c -o $@ $^
 
-${NAME}:		${OBJ} ${HDR}
+${NAME}:		${OBJ} ${HEADER}
 			make -C ./libft
 			${CC} ${LDFLAGS} ${CFLAGS} ${OBJ} ${LIB} -o ${NAME}
 
@@ -64,7 +66,7 @@ fclean:			clean
 
 re:			fclean all
 
-bonus:			${HDR_BNS}
+bonus:
 			${MAKE} BONUS=1
 
 norm:
