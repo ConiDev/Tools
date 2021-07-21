@@ -6,14 +6,13 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 19:05:27 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/17 21:11:57 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/07/21 17:16:30 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= testleaks
 
 CC			= gcc
-
 RM			= rm -f
 
 CFLAGS			= -Wall -Wextra -Werror
@@ -48,30 +47,26 @@ HEADER			= ${HDR}
 endif
 
 %.o: %.c
-			@${CC} ${LDFLAGS} ${CFLAGS} -c -o $@ $^
+			${CC} ${CFLAGS} ${LDFLAGS} -c -o $@ $^
 
 ${NAME}:		${OBJ} ${HEADER}
-			@make -C ./libft
-			@printf "\001\e[1;32m\002Compiling executable\n"
-			@${CC} ${LDFLAGS} ${CFLAGS} ${OBJ} ${LIB} -o ${NAME}
+			make -C ./libft
+			${CC} ${CFLAGS} ${LDFLAGS} ${OBJ} ${LIB} -o ${NAME}
 
 all:			${NAME}
 
 clean:
-			@printf "\001\e[1;35m\002Cleaning up object files\n"
-			@${RM} ${OBJS} ${OBJS_BNS}
-			@make clean -C ./libft
+			${RM} ${OBJS} ${OBJS_BNS}
+			make clean -C ./libft
 
 fclean:			clean
-			@printf "\001\e[1;35m\002Cleaning up binaries\n"
-			@${RM} ${NAME}
-			@make fclean -C ./libft
+			${RM} ${NAME}
+			make fclean -C ./libft
 
 re:			fclean all
 
 bonus:
-			@printf "\001\e[1;34m\002Making Bonus\n"
-			@${MAKE} BONUS=1
+			${MAKE} BONUS=1
 
 norm:
 			norminette libft/ header/ srcs/ srcs_bonus/
