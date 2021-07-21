@@ -6,7 +6,7 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 19:05:27 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/21 17:16:30 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/07/21 19:12:53 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ LDFLAGS			= -fsanitize=address
 FOLDER_HEADER		= header/
 FOLDER_SRCS		= srcs/
 FOLDER_BNS		= srcs_bonus/
-
 
 HEADER_SRC		= test.h
 HEADER_BNS		= test_bonus.h

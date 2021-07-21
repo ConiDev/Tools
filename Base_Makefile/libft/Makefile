@@ -6,25 +6,25 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/09 17:42:35 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/21 17:17:42 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/07/21 19:13:33 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 
 CC		= gcc
-
 RM		= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
-HEADER		= header/libft.h
+FOLDER_HEADER	= header/
+FOLDER_SRCS	= srcs/
 
-FOLDER		= srcs/
-
+HEADER_SRCS	= libft.h
 SRCS		= ft_crash.c
 
-SRC		= $(addprefix ${FOLDER}, ${SRCS})
+SRC		= $(addprefix ${FOLDER_SRCS}, ${SRCS})
+HEADER		= $(addprefix ${FOLDER_HEADER}, ${HEADER_SRCS})
 
 OBJS		= ${SRC:.c=.o}
 
