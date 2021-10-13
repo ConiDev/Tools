@@ -29,8 +29,8 @@
 
 ### **Git architecture :**
 ```
-├── master
-|   └── main
+└── master
+    └── main
 ```
 
 ### **Project architecture :**
