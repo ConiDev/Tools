@@ -4,13 +4,36 @@
 - [x] Basic 42 rules
 - [x] Norminette and Debug rules
 
-### **Git Architecture :**
+### **List of commands :**  
+
+* create Mandatory part:  
+```make```
+
+* create Bonus part:  
+```make bonus```
+
+* Recompile Mandatory part:  
+```make re```
+
+* Clean object files:  
+```make clean```
+
+* Clean executables and objects files:  
+```make fclean```
+
+* launch in debug mode:  
+```make debug```
+
+* check 42 norm:  
+```make norm```
+
+### **Git architecture :**
 ```
 ├── master
 |   └── main
 ```
 
-### **Project Architecture :**
+### **Project architecture :**
 ```
 ├── Makefile
 |
