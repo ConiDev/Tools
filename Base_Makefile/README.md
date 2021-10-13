@@ -1,35 +1,40 @@
-# _Base Makefile for 42 project_  
-## _Intro_
-This is a sample for your 42 projects !
-Feel free to modify and re-use this project for your own needs.
-I've put a few files just so you can test the Makefile before modifying it.
-If you want to check what the ```LDFLAGS``` does, just uncomment the lines in the ```srcs/testleaks.c``` file.
+# Base Makefile
 
-NB: you might want to change the 42 headers in both Makefiles as this is my personnal one.
+### **Suivie du projet : *Base Makefile***
+- [x] Basic 42 rules
+- [x] Norminette and Debug rules
 
-## _List of commands:_  
+### **Git Architecture :**
+```
+├── master
+|   └── main
+```
 
-* create executable:  
-```make```
-or
-```make all```
-or
-```make testleaks```
-
-* create bonus executable:  
-```make bonus```
-
-* cleanup object files:  
-```make clean```
-
-* cleanup object files and binaries:  
-```make fclean```
-
-* check norminette 42:  
-```make norm```
-
-## _How does it work ?_
-This Makefile will compile all of the ```*.c``` specified in the ```SRCS``` variable,
-then will do a call to the Makefile in the libft folder to compile your ```libft.a``` library,
-and will finish by compiling all your object files with your libft.a library under an executable named after the variable ```NAME``` 
-For more information on how Makefile works please consult the man pages.
+### **Project Architecture :**
+```
+├── Makefile
+|
+├── header
+|   ├── test.h
+|   └── test_bonus.h
+|
+├── srcs
+|   └── main.c
+|
+├── srcs_mac
+|   └── display_arg_mac.c
+|
+├── srcs_linux
+|   └── display_arg_linux.c
+|
+├── srcs_bonus
+|   └── main_bonus.c
+|
+└── libft
+   	└──── Makefile
+	   |
+	   ├── header
+	   |	└── libft.h
+	   └── srcs
+      		└── ft_crash.c
+```

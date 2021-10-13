@@ -6,45 +6,50 @@
 #    By: nduvelle <nduvelle@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/09 17:42:35 by nduvelle          #+#    #+#              #
-#    Updated: 2021/07/21 19:13:33 by nduvelle         ###   ########.fr        #
+#    Updated: 2021/10/13 14:59:31 by nduvelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libft.a
+NAME			= libft.a
+CC				= gcc
+RM				= rm -f
+CFLAGS			= -Wall -Wextra -Werror
 
-CC		= gcc
-RM		= rm -f
+HEADER			= header/libft.h
 
-CFLAGS		= -Wall -Wextra -Werror
+FOLDER			= srcs/
+SRCS			= ft_crash.c
+SRC				= $(addprefix ${FOLDER}, ${SRCS})
 
-FOLDER_HEADER	= header/
-FOLDER_SRCS	= srcs/
+OBJS			= ${SRC:.c=.o} ${SRC_CUSTOM:.c=.o}
 
-HEADER_SRCS	= libft.h
-SRCS		= ft_crash.c
+%.o: %.c	${HEADER}
+			@${CC} ${CFLAGS} -c -o $@ $<
 
-SRC		= $(addprefix ${FOLDER_SRCS}, ${SRCS})
-HEADER		= $(addprefix ${FOLDER_HEADER}, ${HEADER_SRCS})
-
-OBJS		= ${SRC:.c=.o}
-
-%.o: %.c
-		${CC} ${CFLAGS} -c -o $@ $^
-
-${NAME}:	${OBJS} ${HEADER}
-		ar -rcs ${NAME} ${OBJS}
+${NAME}:	${OBJS}
+			@printf "$(GREEN)Creating ${NAME} Librarie\n$(RES)"
+			@ar -rcs ${NAME} ${OBJS}
 
 all:		${NAME}
 
 clean:
-		${RM} ${OBJS}
+			@printf "$(RED)Destroying ${NAME} objects (*.o)\n$(RES)"
+			@${RM} ${OBJS}
 
 fclean:		clean
-		${RM} ${NAME}
+			@printf "$(RED)Destroying ${NAME} Librarie (*.a)\n$(RES)"
+			@${RM} ${NAME}
 
-re:		fclean all
+re:			fclean all
 
 norm:
-		norminette header/ srcs/
+			norminette srcs/ header/
 
 .PHONY:		all clean fclean re norm
+
+############################################################
+#					COLOR SET
+############################################################
+RES			= \e[0m
+RED			= \e[1;31m
+GREEN		= \e[1;32m
